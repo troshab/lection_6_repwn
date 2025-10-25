@@ -1,0 +1,75 @@
+
+services:
+  stage01:
+    build: { context: ., dockerfile: docker/Dockerfile }
+    image: pwn8:latest
+    environment: [ STAGE_BIN=01_nc ]
+    entrypoint: ["/bin/sh","-c","/app/stage01_nc < /dev/stdin"]
+    ports: ["7101:80"]
+    security_opt: ["no-new-privileges:true"]
+    read_only: true
+    tmpfs: ["/tmp:rw,noexec,nosuid,nodev"]
+    cap_drop: ["ALL"]
+    pids_limit: 64
+    mem_limit: 128m
+  stage03:
+    image: pwn8:latest
+    environment: [ STAGE_BIN=03_pwntools_dummy ]
+    entrypoint: ["/bin/sh","-c","/app/stage03_pwntools_dummy < /dev/stdin"]
+    ports: ["7103:80"]
+    security_opt: ["no-new-privileges:true"]
+    read_only: true
+    tmpfs: ["/tmp:rw,noexec,nosuid,nodev"]
+    cap_drop: ["ALL"]
+    pids_limit: 64
+    mem_limit: 128m
+  stage04:
+    image: pwn8:latest
+    environment: [ STAGE_BIN=04_demo_no_offset ]
+    entrypoint: ["/bin/sh","-c","/app/stage04_demo_no_offset < /dev/stdin"]
+    ports: ["7104:80"]
+    security_opt: ["no-new-privileges:true"]
+    read_only: true
+    tmpfs: ["/tmp:rw,noexec,nosuid,nodev"]
+    cap_drop: ["ALL"]
+    pids_limit: 64
+  stage05:
+    image: pwn8:latest
+    environment: [ STAGE_BIN=05_demo_with_hint ]
+    entrypoint: ["/bin/sh","-c","/app/stage05_demo_with_hint < /dev/stdin"]
+    ports: ["7105:80"]
+    security_opt: ["no-new-privileges:true"]
+    read_only: true
+    tmpfs: ["/tmp:rw,noexec,nosuid,nodev"]
+    cap_drop: ["ALL"]
+    pids_limit: 64
+  stage06:
+    image: pwn8:latest
+    environment: [ STAGE_BIN=06_ret2win ]
+    entrypoint: ["/bin/sh","-c","/app/stage06_ret2win < /dev/stdin"]
+    ports: ["7106:80"]
+    security_opt: ["no-new-privileges:true"]
+    read_only: true
+    tmpfs: ["/tmp:rw,noexec,nosuid,nodev"]
+    cap_drop: ["ALL"]
+    pids_limit: 64
+  stage07:
+    image: pwn8:latest
+    environment: [ STAGE_BIN=07_leak_demo ]
+    entrypoint: ["/bin/sh","-c","/app/stage07_leak_demo < /dev/stdin"]
+    ports: ["7107:80"]
+    security_opt: ["no-new-privileges:true"]
+    read_only: true
+    tmpfs: ["/tmp:rw,noexec,nosuid,nodev"]
+    cap_drop: ["ALL"]
+    pids_limit: 64
+  stage08:
+    image: pwn8:latest
+    environment: [ STAGE_BIN=08_ret2libc ]
+    entrypoint: ["/bin/sh","-c","/app/stage08_ret2libc < /dev/stdin"]
+    ports: ["7108:80"]
+    security_opt: ["no-new-privileges:true"]
+    read_only: true
+    tmpfs: ["/tmp:rw,noexec,nosuid,nodev"]
+    cap_drop: ["ALL"]
+    pids_limit: 64

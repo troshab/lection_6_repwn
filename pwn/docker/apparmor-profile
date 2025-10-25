@@ -1,0 +1,10 @@
+
+#include <tunables/global>
+profile pwn-ctf flags=(attach_disconnected) {
+  #include <abstractions/base>
+  file,  deny /bin/** mrwklx,  deny /sbin/** mrwklx,  deny /usr/** mrwklx,
+  /app/** r,
+  /app/tmp/** rw,
+  /tmp/** rw,
+  deny ptrace (readby, tracedby),
+}

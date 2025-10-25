@@ -1,0 +1,11 @@
+# Python Dependencies for RE/PWN CTF Challenges
+# Встановлення: pip install -r requirements.txt
+
+# PWN
+pwntools>=4.11.0        # Фреймворк для написання exploits
+pycryptodome>=3.19.0    # Криптографічні функції (для деяких RE завдань)
+
+# Utilities (опціонально, але корисно)
+ropper>=1.13.8          # Пошук ROP gadgets
+capstone>=5.0.0         # Disassembler (використовується pwntools)
+unicorn>=2.0.0          # CPU emulator (використовується pwntools)

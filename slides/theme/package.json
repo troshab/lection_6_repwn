@@ -1,0 +1,13 @@
+{
+  "name": "slidev-theme-coral-bold",
+  "version": "1.0.0",
+  "description": "Coral Bold theme for Slidev with vibrant coral colors and bold typography",
+  "keywords": [
+    "slidev-theme",
+    "slidev"
+  ],
+  "engines": {
+    "node": ">=14.0.0",
+    "slidev": ">=0.48.0"
+  }
+}
